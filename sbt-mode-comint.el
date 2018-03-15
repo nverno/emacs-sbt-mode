@@ -175,6 +175,7 @@ what `sbt:move-marker-before-prompt-filter` did."
                      ((eq submode 'console) sbt:console-history-file))))
           (when (and comint-input-ring-file-name
                      (not (equal comint-input-ring-file-name sbt:previous-history-file)))
+            (comint-write-input-ring)
             (setq sbt:previous-history-file comint-input-ring-file-name)
             (comint-read-input-ring)))))
     input))
